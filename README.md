@@ -10,14 +10,12 @@
 | last_name_kana     | string | null: false              |
 | first_name_kana    | string | null: false              |
 | birth_day          | date   | null: false              |
-| password           | string | null: false              |
+| encrypted_password | string | null: false              |
 | email              | string | null: false,unique: true |
 
 ### Association
 - has_many: items
-- has_one: purchase,dependent:destroy
-- has_one: card,dependent:destroy
-- has_one: shipping adress,dependent:destroy
+- has_many: purchases
 
 ## itemsテーブル
 
@@ -36,12 +34,11 @@
 
 ### Association
 - belongs_to:user
-- belongs_to:category
-- has_one: purchase,dependent:destroy
+- has_one: purchase
 - has_one: card,dependent:destroy
 - has_many: images,dependent:destroy
 
-## purchasesテーブル
+## purchases historyテーブル
 | Column             | Type    | Options                        |
 | ------------------ | ------- | ------------------------------ |
 | last_name          | string  | null: false                    |
@@ -49,7 +46,6 @@
 | last_name_kana     | string  | null: false                    |
 | first_name_kana    | string  | null: false                    |
 | email              | string  | null: false,unique: true       |
-| phone_number       | string  |                                |
 | user_id            | integer | null: false, foreign_key: true |
 
 ### Association
@@ -57,17 +53,18 @@
 
 ## shipping adressテーブル
 
-| Column     | Type    | Options                        |
-| ---------- | ------- | ------------------------------ |
-| post_code  | string  | null: false                    |
-| prefecture | string  | null: false                    |
-| city       | string  | null: false                    |
-| block      | string  | null: false                    |
-| building   | string  | null: false                    |
-| user_id    | integer | null: false, foreign_key: true |
+| Column       | Type    | Options     |
+| ------------ | ------- | ----------- |
+| post_code    | string  | null: false |
+| region       | string  | null: false |
+| city         | string  | null: false |
+| block        | string  | null: false |
+| building     | string  |             |
+| phone_number | string  |             |
+| user_id      | integer |             |
 
 ### Association
-- belongs_to:user
+- belongs_to:purchase
 
 ## imagesテーブル
 
@@ -79,24 +76,6 @@
 ### Association
 - belongs_to:item
 
-## categoryテーブル
-
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| ancestry | string |             |
-
 ### Association
 has_many: items
 has_ancestry
-
-## cardsテーブル
-
-| Column     | Type    | Options                        |
-| ---------- | ------- | ------------------------------ |
-| user_id    | integer | null: false, foreign_key: true |
-| custmer_id | string  | null: false                    |
-| card_id    | string  | null: false, foreign_key: true |
-
-### Association
-- belongs_to:user
