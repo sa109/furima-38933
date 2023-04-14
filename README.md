@@ -60,7 +60,7 @@
 | block        | string  | null: false |
 | building     | string  |             |
 | phone_number | string  | null: false |
-| user_id      | integer |             |
+| user_id      | integer | null: false |
 
 ### Association
 - belongs_to:purchase
