@@ -44,7 +44,7 @@
 ### Association
 - belongs_to: user
 - belongs_to: item
-- has_one: shipping_adress
+- has_one: shipping_adres
 
 ## shipping_adressテーブル
 
@@ -56,7 +56,7 @@
 | block        | string     | null: false                    |
 | building     | string     |                                |
 | phone_number | string     | null: false                    |
-| user         | references | null: false, foreign_key: true |
+| purchace     | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to: purchase
