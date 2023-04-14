@@ -29,7 +29,7 @@
 | shipping_days_id | string    | null: false                    |
 | price            | integer   | null: false                    |
 | user             | reference | null: false, foreign_key: true |
-| category_id      | integer   | null: false                    |
+| category_id      | string    | null: false                    |
 
 ### Association
 - belongs_to:user
