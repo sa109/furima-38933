@@ -35,7 +35,6 @@
 ### Association
 - belongs_to:user
 - has_one: purchase
-- has_one: card,dependent:destroy
 - has_many: images,dependent:destroy
 
 ## purchases historyテーブル
@@ -76,6 +75,3 @@
 ### Association
 - belongs_to:item
 
-### Association
-has_many: items
-has_ancestry
