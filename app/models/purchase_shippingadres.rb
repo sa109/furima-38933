@@ -1,4 +1,4 @@
-class PurchaseShippingDay
+class PurchaseShippingAdres
   include ActiveModel::Model
   attr_accessor :post_code, :region, :city, :block, :building, :phone_number, :purchase_id, :user_id, :item_id, :token
   

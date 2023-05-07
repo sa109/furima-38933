@@ -6,15 +6,11 @@ class PurchasesController < ApplicationController
     @purchase_shippingadres = PurchaseShippingAdres.new
   end
 
-  def new
-    @purchase_shippingadres = PurchaseShippingAdres.new
-  end
-
   def create
     @purchase_shippingadres = PurchaseShippingAdres.new(purchase_params)
     if @purchase_shippingadres.valid?
        @purchase_shippingadres.save
-       redirect_to root_path
+       return redirect_to root_path
     else
       render 'index'
     end
