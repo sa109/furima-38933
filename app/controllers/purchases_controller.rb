@@ -3,6 +3,7 @@ class PurchasesController < ApplicationController
 
 
   def index
+    @purchase_shippingadres = PurchaseShippingAdres.new
   end
 
   def new
@@ -12,10 +13,10 @@ class PurchasesController < ApplicationController
   def create
     @purchase_shippingadres = PurchaseShippingAdres.new(purchase_params)
     if @purchase_shippingadres.valid?
-      @purchase_shippingadres.save
-      redirect_to root_path
+       @purchase_shippingadres.save
+       redirect_to root_path
     else
-      render :index
+      render 'index'
     end
   end
 
