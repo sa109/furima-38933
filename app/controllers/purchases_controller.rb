@@ -3,16 +3,22 @@ class PurchasesController < ApplicationController
   end
 
   def new
-    @purchaseshippingday = PurchaseShippingDay.new
+    @purchase_shippingday = PurchaseShippingDay.new
   end
 
   def create
-    @purchaseshippingday = PurchaseShippingDay.new(purchase_params)
-    if @purchaseshippingday.valid?
-      @purchaseshippingday.save
+    @purchase_shippingday = PurchaseShippingDay.new(purchase_params)
+    if @purchase_shippingday.valid?
+      @purchase_shippingday.save
       redirect_to root_path
     else
-      render :new
+      render :index
     end
+  end
+
+  private
+ 
+  def purchase_params
+    params.require(:purchase_shippingday).permit(:post_code, :region_id, :city, :block, :building, :phone_number).maerge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 end
