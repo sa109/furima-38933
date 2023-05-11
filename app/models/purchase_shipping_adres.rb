@@ -10,12 +10,11 @@ class PurchaseShippingAdres
     validates :city
     validates :block
     validates :phone_number, format: {with: /\A[0-9]{11}\z/, message: "is invalid"}
-    validates :token
   end
   
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
-    shippingday.create(post_code: post_code, region_id: region_id, city: city, block: block, building: building, phone_number: phone_number, purchase_id: purchase_id)
+    ShippingAdres.create(post_code: post_code, region_id: region_id, city: city, block: block, building: building, phone_number: phone_number, purchase_id: purchase_id)
   end
 end
