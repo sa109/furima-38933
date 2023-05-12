@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+ before_action :authenticate_user!
  before_action :move_to_index, only: [:index, :create]
 
   def index
@@ -23,6 +24,6 @@ class PurchasesController < ApplicationController
 
   def move_to_index
     @item = Item.find(params[:item_id])
+    redirect_to root_path if current_user.id == @item.user_id || @item.purchase.present?
   end
-
 end
