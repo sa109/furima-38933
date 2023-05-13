@@ -66,6 +66,7 @@ class ItemsController < ApplicationController
     if @item.user_id != current_user.id || @item.purchase != nil
       redirect_to root_path
     end
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :image, :status_id, :postage_id, :region_id, :shipping_day_id,
