@@ -105,6 +105,11 @@ RSpec.describe PurchaseShippingAdres, type: :model do
         @purchase_shipping_adres.valid?
         expect(@purchase_shipping_adres.errors.full_messages).to include("Phone number is too short", "Phone number is invalid. Input only number")
       end
+      it 'トークンが空だと保存できない' do
+        @purchase_shipping_adres.token = nil
+        @purchase_shipping_adres.valid?
+        expect(@purchase_shipping_adres.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
