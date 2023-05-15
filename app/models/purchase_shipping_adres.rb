@@ -9,6 +9,7 @@ class PurchaseShippingAdres
     validates :region_id, numericality: {other_than: 1, message: "can't be blank"}
     validates :city
     validates :block
+    validates :token
   end
 
   with_options presence: true do
