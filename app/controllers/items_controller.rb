@@ -5,9 +5,6 @@ class ItemsController < ApplicationController
   # 重複処理をまとめる
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  # 売却済みの自身が出品した商品の編集・削除画面に遷移できないように実装
-  before_action :present_url, only: [:edit, :update, :destroy]
-
   def index
     @items = Item.order('created_at DESC')
   end
@@ -60,12 +57,6 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def prevent_url
-    if @item.user_id != current_user.id || @item.purchase != nil
-      redirect_to root_path
-    end
   end
 
   def item_params

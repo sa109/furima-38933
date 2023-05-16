@@ -13,7 +13,7 @@ class PurchaseShippingAdres
   end
 
   with_options presence: true do
-    validates :phone_number, length: { minimum: 10, maximum:11, message: "is too short"}, format: {with: /\A[0-9]{11}\z/, message: "is invalid. Input only number"}
+    validates :phone_number, length: { minimum: 10, maximum:11, message: "is too short"}, format: {with: /\A[0-9]{10,11}\z/, message: "is invalid. Input only number"}
   end
   
   def save
