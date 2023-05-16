@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+ before_action :authenticate_user!
  before_action :move_to_index, only: [:index, :create]
 
   def index
