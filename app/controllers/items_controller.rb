@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-     # ログインしているユーザーと同一であればeditファイルが読み込まれる
+    # ログインしているユーザーと同一であればeditファイルが読み込まれる
     if current_user.id == @item.user_id
     else
       redirect_to root_path
@@ -44,12 +44,12 @@ class ItemsController < ApplicationController
   def destroy
     if current_user.id == @item.user_id
       if @item.destroy
-         redirect_to root_path
+        redirect_to root_path
       else
         render action: 'show'
       end
     else
-       redirect_to root_path
+      redirect_to root_path
     end
   end
 

@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
- before_action :authenticate_user!
- before_action :move_to_index, only: [:index, :create]
+  before_action :authenticate_user!
+  before_action :move_to_index, only: [:index, :create]
 
   def index
     @purchase_shipping_adres = PurchaseShippingAdres.new
@@ -10,21 +10,23 @@ class PurchasesController < ApplicationController
     @purchase_shipping_adres = PurchaseShippingAdres.new(purchase_params)
     if @purchase_shipping_adres.valid?
       pay_item
-       @purchase_shipping_adres.save
-       return redirect_to root_path
+      @purchase_shipping_adres.save
+      redirect_to root_path
     else
       render :index
     end
   end
 
   private
- 
+
   def purchase_params
-    params.require(:purchase_shipping_adres).permit(:post_code, :region_id, :city, :block, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:purchase_shipping_adres).permit(:post_code, :region_id, :city, :block, :building, :phone_number).merge(
+      user_id: current_user.id, item_id: params[:item_id], token: params[:token]
+    )
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,  # 商品の値段
       card: purchase_params[:token],    # カードトークン
