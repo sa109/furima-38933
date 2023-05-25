@@ -36,6 +36,15 @@
     <% end %>
   <% end %>
 
+<div class="comment-form">
+  <% if user_signed_in? %>
+    <%= form_with model: [@item, @comment], id: "comment-form" do |f| %>
+       <%= f.text_area :text, class: "comment-text" %>
+       <%= f.submit "コメントをする", class: "comment-submit" %>
+    <% end %>
+  <% end %>
+</div>
+
     <div class="item-explain-box">
       <span><%= @item.description %></span>
     </div>
