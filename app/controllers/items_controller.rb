@@ -23,10 +23,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @comments = @item.comments.include(:user)
+    @comments = @item.comments.includes(:user)
     @comment = Comment.new
   end
-
+   
   def edit
     # ログインしているユーザーと同一であればeditファイルが読み込まれる
     if @item.user_id == current_user.id && @item.purchase.nil?
