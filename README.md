@@ -1,7 +1,96 @@
-# テーブル設計
+## README
+
+概要
+テックキャンプの最終課題にて作成したアプリケーションを紹介します。
+<br>
+<br>
+
+アプリケーション概要
+フリーマーケットのアプリケーションを作成しました。ユーザーを登録すると商品を出品できるようになります。自身が出品した商品は、編集と削除をすることができます。他のユーザーが出品した商品は、クレジットカードを用いて購入することができます。
+<br>
+<br>
+
+接続先情報
+https://35.79.236.174/
+Basic認証
+ID/Pass
+ID: admin
+Pass: 2222
+
+<br>
+<br>
+
+テスト用アカウント等
+購入者用
+メールアドレス: 121sasakp@yahoo.co.jp
+パスワード: sasa10
+
+購入用カード情報
+番号：4242424242424242
+期限：9月/24年（未来の年月であれば可能）
+セキュリティコード：123
+
+出品者用
+メールアドレス名: 4343sa@yahoo.co.jp
+パスワード: sa1093
+<br>
+<br>
+
+## 実装機能
+## トップページ
+![0 top_page](https://user-images.githubusercontent.com/68714247/107143736-15f16400-697a-11eb-911c-9740a99dda4f.gif)
+
+<br>
+
+## 1.ユーザー登録機能
+ユーザー登録することで出品・購入できるようになります。（ユーザー登録していない人でも出品している商品を見ることは可能です。）
+
+![1 user_registration](https://user-images.githubusercontent.com/68714247/107143755-2acdf780-697a-11eb-9163-68e4d5e25643.gif)
+
+<br>
+
+## 2.商品出品機能
+商品画像を選択し、商品情報や販売したい金額を入力すると、出品することができます。（JavaScriptで販売手数料が表示されるようになっています。）
+
+![2 products_listing](https://user-images.githubusercontent.com/68714247/107143777-420ce500-697a-11eb-8693-1bbff89abb6a.gif)
+
+<br>
+
+## 3.商品の編集機能
+出品した商品について、編集することができます。その際に、ユーザーの手間を省くため出品時の情報が表示されるようになっています。
+
+![3 products_edit](https://user-images.githubusercontent.com/68714247/107143794-5c46c300-697a-11eb-8a3c-ff24c18f098c.gif)
+
+## 4.商品の削除機能
+出品中であった商品について、削除ボタンを押すことで商品を削除することができます。
+
+![4 products_deleting](https://user-images.githubusercontent.com/68714247/107143824-7d0f1880-697a-11eb-9946-deb0f4971f2c.gif)
+
+<br>
+
+## 5.商品の購入機能
+出品者以外であれば、商品を購入することができます。カード情報と配送先を入力すると購入できます。（JavaScriptとフォームオブジェクトを使用し、トークン化したカード情報をPAY.JPに送付しつつ、カード情報がアプリケーションのデータベースに保存されないように設計しています。）
+
+![5 purchase](https://user-images.githubusercontent.com/68714247/107143834-91531580-697a-11eb-8bc4-1eca1d49e97e.gif)
+
+<br>
+
+## 6.商品のコメント機能
+出品された商品について、ログインしているユーザーであれば、コメント欄にコメントを入力し、コメントをするボタンをクリックするとコメントをすることができます。
+
+[![comment](https://i.gyazo.com/38739526932a993f5b560cfcf3184cba.gif)](https://gyazo.com/38739526932a993f5b560cfcf3184cba)
+
+<br>
+<br>
+
+## ER図
+[![ER図(furima)](https://i.gyazo.com/7fb86f18d2834970c83bc301ebf2cbb4.png)](https://gyazo.com/7fb86f18d2834970c83bc301ebf2cbb4)
+<br>
+<br>
+
+## データベース設計
 
 ## usersテーブル
-
 | Column             | Type   | Options                  |
 | ------------------ | ------ | ------------------------ |
 | nickname           | string | null: false              |
@@ -14,8 +103,11 @@
 | email              | string | null: false,unique: true |
 
 ### Association
+
 - has_many: items
 - has_many: purchases
+<br>
+<br>
 
 ## itemsテーブル
 
@@ -32,8 +124,11 @@
 | category_id      | integer    | null: false                    |
 
 ### Association
+
 - belongs_to: user
 - has_one: purchase
+<br>
+<br>
 
 ## purchasesテーブル
 | Column | Type       | Options                      |
@@ -42,9 +137,12 @@
 | user | references | null: false, foreign_key: true |
 
 ### Association
+
 - belongs_to: user
 - belongs_to: item
 - has_one: shipping_addres
+<br>
+<br>
 
 ## shipping_addressテーブル
 
@@ -59,6 +157,32 @@
 | purchase     | references | null: false, foreign_key: true |
 
 ### Association
+
 - belongs_to: purchase
+<br>
+<br>
 
+開発環境
+Ruby:2.6.5/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code
+開発期間と平均作業時間
+開発期間：4/11〜5/16(35日間)
+1日あたりの平均作業時間：4
+合計：140時間程度
+<br>
+<br>
 
+ローカルでの動作確認方法
+```
+% git clone https://github.com/erika618/furima-29074.git
+% cd furima-29074
+% bundle install
+% rails db:create
+% rails db:migrate
+% yarn install
+```
+
+# その他使用しているgem・使うコマンド
+```
+<!-- rubocop（インデントを整えるため） -->
+% bundle exec rubocop -a
+```
