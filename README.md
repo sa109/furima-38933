@@ -38,40 +38,35 @@ Pass: 2222
 
 ## 実装機能
 ## トップページ
-![0 top_page](https://user-images.githubusercontent.com/68714247/107143736-15f16400-697a-11eb-911c-9740a99dda4f.gif)
-
+[![top page](https://i.gyazo.com/087b5fd27d1aa209b03269a5fff1e348.gif)](https://gyazo.com/087b5fd27d1aa209b03269a5fff1e348)
 <br>
 
 ## 1.ユーザー登録機能
 ユーザー登録することで出品・購入できるようになります。（ユーザー登録していない人でも出品している商品を見ることは可能です。）
-
-![1 user_registration](https://user-images.githubusercontent.com/68714247/107143755-2acdf780-697a-11eb-9163-68e4d5e25643.gif)
-
+[![user](https://i.gyazo.com/7f5470d78388371d405ccff1a72e5de2.gif)](https://gyazo.com/7f5470d78388371d405ccff1a72e5de2)
 <br>
 
 ## 2.商品出品機能
 商品画像を選択し、商品情報や販売したい金額を入力すると、出品することができます。（JavaScriptで販売手数料が表示されるようになっています。）
-
-![2 products_listing](https://user-images.githubusercontent.com/68714247/107143777-420ce500-697a-11eb-8693-1bbff89abb6a.gif)
+[![出品](https://i.gyazo.com/5934af1ad05c3612253e1eb84da600c1.gif)](https://gyazo.com/5934af1ad05c3612253e1eb84da600c1)
 
 <br>
 
 ## 3.商品の編集機能
 出品した商品について、編集することができます。その際に、ユーザーの手間を省くため出品時の情報が表示されるようになっています。
+[![編集](https://i.gyazo.com/d2eb0a412fe8a9a02841fa2389a38d64.gif)](https://gyazo.com/d2eb0a412fe8a9a02841fa2389a38d64)
 
-![3 products_edit](https://user-images.githubusercontent.com/68714247/107143794-5c46c300-697a-11eb-8a3c-ff24c18f098c.gif)
+<br>
 
 ## 4.商品の削除機能
 出品中であった商品について、削除ボタンを押すことで商品を削除することができます。
-
-![4 products_deleting](https://user-images.githubusercontent.com/68714247/107143824-7d0f1880-697a-11eb-9946-deb0f4971f2c.gif)
+[![削除](https://i.gyazo.com/69d28c2ac3b32b381ee16e1c4226d010.gif)](https://gyazo.com/69d28c2ac3b32b381ee16e1c4226d010)
 
 <br>
 
 ## 5.商品の購入機能
 出品者以外であれば、商品を購入することができます。カード情報と配送先を入力すると購入できます。（JavaScriptとフォームオブジェクトを使用し、トークン化したカード情報をPAY.JPに送付しつつ、カード情報がアプリケーションのデータベースに保存されないように設計しています。）
-
-![5 purchase](https://user-images.githubusercontent.com/68714247/107143834-91531580-697a-11eb-8bc4-1eca1d49e97e.gif)
+[![購入](https://i.gyazo.com/f261b492c3c7489b46065d7dc51fb902.gif)](https://gyazo.com/f261b492c3c7489b46065d7dc51fb902)
 
 <br>
 
@@ -81,12 +76,12 @@ Pass: 2222
 [![comment](https://i.gyazo.com/38739526932a993f5b560cfcf3184cba.gif)](https://gyazo.com/38739526932a993f5b560cfcf3184cba)
 
 <br>
-<br>
+
 
 ## ER図
 [![ER図(furima)](https://i.gyazo.com/7fb86f18d2834970c83bc301ebf2cbb4.png)](https://gyazo.com/7fb86f18d2834970c83bc301ebf2cbb4)
 <br>
-<br>
+
 
 ## データベース設計
 
