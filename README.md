@@ -76,10 +76,11 @@ Pass: 2222
 [![comment](https://i.gyazo.com/38739526932a993f5b560cfcf3184cba.gif)](https://gyazo.com/38739526932a993f5b560cfcf3184cba)
 
 <br>
-
+<br>
 
 ## ER図
 [![ER図(furima)](https://i.gyazo.com/7fb86f18d2834970c83bc301ebf2cbb4.png)](https://gyazo.com/7fb86f18d2834970c83bc301ebf2cbb4)
+<br>
 <br>
 
 
